@@ -1,0 +1,38 @@
+# nexy-auth
+
+Authentication for Nexy apps, in the spirit of better-auth: sign-in, sessions and permissions that
+work the day the module is added, stored in the database the project already has.
+
+## Why
+
+Every app rewrites the same parts: password hashing, session cookies, OAuth callbacks, email
+verification, password reset, rate limits on sign-in. Each rewrite is a new chance to get security
+wrong. nexy-auth ships them once, tested, with safe defaults.
+
+## What it covers
+
+| Area | First version |
+|---|---|
+| Email and password | sign-up, sign-in, verification email, reset, Argon2id hashing |
+| Sessions | database sessions, HttpOnly cookies, rotation, revocation, list of active devices |
+| OAuth | GitHub, Google, Apple, Microsoft, Discord, plus any OpenID Connect provider |
+| Passwordless | magic links, one-time codes, passkeys (WebAuthn) |
+| Second factor | TOTP apps, backup codes |
+| Teams | organizations, members, invitations, roles |
+| Protection | rate limits on sign-in and reset, CSRF on forms, account lockout |
+
+## How it fits in Nexy
+
+- Configured in `nexyconfig.py`, tables created by `nx migrate` from the existing `DATABASE_URL`.
+- Server side: a dependency for handlers and actions, and a guard for routes and layouts.
+- Client side: the same hooks for React, Vue, Svelte, Solid and Preact islands.
+- Plugins add a provider or a feature without forking the module.
+- Emails go through [nexy-mail](https://github.com/NexyPy/nexy-mail) when it is installed.
+
+## Status
+
+Design phase. The API is being written in the issues before any code. Nothing is published yet.
+
+## License
+
+MIT
