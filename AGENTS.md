@@ -111,6 +111,9 @@ second factor and organizations.
 
 - A pull request has one purpose, an English description, the gate output and no generated text.
   The PR template is the checklist. Do not merge with a red gate.
+- A contributor never approves or merges their own pull request. The maintainer reviews the work
+  and merges it. A pull request from a contributor needs the maintainer approval before it can
+  merge. The maintainer owns every file through .github/CODEOWNERS.
 - Releases are tag driven and published with PyPI Trusted Publishing. The build job and the
   publish job are separate, the publish job has only `id-token: write`, and the distributions are
   smoke tested before upload.
