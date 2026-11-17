@@ -20,7 +20,7 @@ If a gate was skipped, say which one and why. A skipped gate is not a pass.
 ## Checklist
 
 - [ ] The test was written before the code.
-- [ ] Every added line of `src/nexy_auth/` runs in a test and every branch is taken.
+- [ ] Every added line of `src/server/nexy_auth/` runs in a test and every branch is taken.
 - [ ] Hostile inputs have their own security tests.
 - [ ] No character a person does not type appears in code, docs or this description.
 - [ ] No AI tool or agent is named as an author, a co-author or a generator.
