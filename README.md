@@ -51,6 +51,7 @@ be used in a project, and every page says what is still a decision.
 - `src/server/nexy_auth/` is the Python package, imported as `nexy_auth`.
 - `client/` is the TypeScript contract harness, installed with pnpm.
 - `docs/` is the module documentation.
+- `develop` is the integration branch. `main` receives reviewed merges and release commits.
 
 ## Development
 
