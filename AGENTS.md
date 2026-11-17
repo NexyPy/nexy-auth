@@ -90,6 +90,9 @@ second factor and organizations.
   merge into.
 - Only the maintainer merges into `main` and `develop`. A contributor works on a branch and waits
   for the review.
+- GitHub branch protection enforces this on both branches: a pull request, one code owner approval,
+  an approval after the last push, up-to-date branches and every CI check are required. Force pushes
+  and branch deletion are refused. The maintainer can bypass the rule when the repository needs it.
 
 ## Commits and attribution
 
