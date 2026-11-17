@@ -46,6 +46,12 @@ nx migrate --upgrade
 [issue 9](https://github.com/NexyPy/nexy-auth/issues/9). The docs show the planned API and how it will
 be used in a project, and every page says what is still a decision.
 
+## Repository layout
+
+- `src/server/nexy_auth/` is the Python package, imported as `nexy_auth`.
+- `client/` is the TypeScript contract harness, installed with pnpm.
+- `docs/` is the module documentation.
+
 ## Development
 
 Python uses uv and the Astral tools. TypeScript uses pnpm and Vitest. Node 26 and Python 3.13
