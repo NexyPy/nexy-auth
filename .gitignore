@@ -8,4 +8,8 @@ build/
 .ruff_cache/
 .mypy_cache/
 .coverage
+.coverage.json
 .env
+requirements-audit.txt
+client/node_modules/
+client/coverage/
