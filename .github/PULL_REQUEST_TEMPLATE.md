@@ -27,3 +27,4 @@ If a gate was skipped, say which one and why. A skipped gate is not a pass.
 - [ ] Every identifier, comment and sentence is in English.
 - [ ] The commit is one unit and its message says why.
 - [ ] The maintainer, not the author, will review and merge this pull request.
+- [ ] This pull request targets `develop`, or `main` for a release.
