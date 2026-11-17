@@ -107,6 +107,15 @@ second factor and organizations.
 - Dependencies are updated by Dependabot on a weekly schedule. A version is upgraded after its
   gates pass, not before.
 
+## Bot identities
+
+- Every bot account that acts for Nexy uses the Nexy logo as its avatar. A GitHub App owned by Nexy
+  uploads `docs/assets/nexy-bot-avatar.png` as its badge, with the dark background `#0a0a0a`.
+- GitHub-owned bots (Dependabot, github-actions) keep their own avatar. A repository cannot change
+  it, and no bot is created to impersonate them.
+- Third-party apps keep their own identity. A bot with write access is reviewed like any other
+  collaborator and is never named after an AI tool.
+
 ## Pull requests and releases
 
 - A pull request has one purpose, an English description, the gate output and no generated text.
