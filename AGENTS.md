@@ -34,7 +34,7 @@ second factor and organizations.
 
 ## Done means tested, measured and checked
 
-- Every added line of `src/nexy_auth/` runs in a test, and every branch it opens is taken. Total
+- Every added line of `src/server/nexy_auth/` runs in a test, and every branch it opens is taken. Total
   coverage is not enough, because it hides the new lines no test runs.
 - Security has its own tests. Every value a person or another site controls gets a hostile test:
   a path that climbs out of its folder, a body over the limit, a redirect to another site, a call
