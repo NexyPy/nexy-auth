@@ -11,7 +11,7 @@ import sys
 GATES: list[tuple[str, list[str]]] = [
     ("lint", ["-m", "ruff", "check", "src/", "tests/", "scripts/"]),
     ("format", ["-m", "ruff", "format", "src/", "tests/", "scripts/", "--check"]),
-    ("typecheck", ["-m", "mypy", "src/nexy_auth", "--strict"]),
+    ("typecheck", ["-m", "mypy", "src/server/nexy_auth", "--strict"]),
     ("structure", ["scripts/audit_structure.py", "--check"]),
     ("characters", ["scripts/check_human_characters.py"]),
     (
@@ -26,7 +26,7 @@ GATES: list[tuple[str, list[str]]] = [
         ],
     ),
     ("diff-coverage", ["scripts/check_diff_coverage.py", "--report", ".coverage.json"]),
-    ("security", ["-m", "bandit", "-r", "src/nexy_auth/", "-c", ".bandit", "-q"]),
+    ("security", ["-m", "bandit", "-r", "src/server/nexy_auth/", "-c", ".bandit", "-q"]),
 ]
 
 
