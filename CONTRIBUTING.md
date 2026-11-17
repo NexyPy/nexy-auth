@@ -19,6 +19,8 @@ The hooks check the commit message, the identity and the staged files. Never use
 2. Write a failing test. Write the least code that passes. Refactor.
 3. Run `uv run python scripts/verify.py` from the root and `pnpm --dir client run verify`.
 4. Open a pull request with the gate output. One purpose, one unit, one file per commit.
+5. Wait for the maintainer review. Do not approve or merge your own pull request. The maintainer
+   validates the work and merges it.
 
 ## Language and characters
 
