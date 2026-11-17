@@ -1,0 +1,36 @@
+# Contributing to nexy-auth
+
+Read AGENTS.md first. It is the contract for every change in this repository.
+
+## Setup
+
+```bash
+uv sync --frozen --group dev
+cd client && pnpm install --frozen-lockfile
+git config core.hooksPath .githooks
+```
+
+The hooks check the commit message, the identity and the staged files. Never use `--no-verify`.
+
+## Work
+
+1. Read the issue and research the question with primary sources. Check versions and advisories
+   with commands, not from memory.
+2. Write a failing test. Write the least code that passes. Refactor.
+3. Run `uv run python scripts/verify.py` from the root and `pnpm --dir client run verify`.
+4. Open a pull request with the gate output. One purpose, one unit, one file per commit.
+
+## Language and characters
+
+Code, comments, identifiers, docs, issues, pull requests and commit messages are in English.
+Use only characters typed on an English or French keyboard. No emoji. The gate
+`scripts/check_human_characters.py` refuses generated characters in files and commit messages.
+
+## Attribution
+
+No AI tool or agent is an author, a co-author or a generator. Do not add a `Co-authored-by`
+trailer for Codex, Freebuff, Claude Code, OpenCode or any other tool. Do not add a
+`Generated with` footer. GitHub counts a trailer as a contributor forever.
+
+`scripts/check_attribution.py` runs in `.githooks/commit-msg` and in CI on every new commit. A
+commit with AI attribution is rejected. Fix the commit instead of bypassing the hook.
