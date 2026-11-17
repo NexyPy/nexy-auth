@@ -33,6 +33,21 @@ wrong. nexy-auth ships them once, tested, with safe defaults.
 
 Design phase. The API is being written in the issues before any code. Nothing is published yet.
 
+## Development
+
+Python uses uv and the Astral tools. TypeScript uses pnpm and Vitest. Node 26 and Python 3.13
+are the reference runtimes.
+
+```bash
+uv sync --frozen --group dev
+git config core.hooksPath .githooks
+uv run python scripts/verify.py
+pnpm --dir client run verify
+```
+
+Read AGENTS.md before a change. Every gate must pass, every identifier and sentence is in English,
+and no AI tool is named as an author or a co-author.
+
 ## License
 
 MIT
