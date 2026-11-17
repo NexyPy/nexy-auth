@@ -26,3 +26,4 @@ If a gate was skipped, say which one and why. A skipped gate is not a pass.
 - [ ] No AI tool or agent is named as an author, a co-author or a generator.
 - [ ] Every identifier, comment and sentence is in English.
 - [ ] The commit is one unit and its message says why.
+- [ ] The maintainer, not the author, will review and merge this pull request.
