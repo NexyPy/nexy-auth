@@ -32,7 +32,7 @@ GATES: list[tuple[str, list[str]]] = [
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--base", default="origin/main")
+    parser.add_argument("--base", default="origin/develop")
     options = parser.parse_args(argv)
     gates = [
         (name, [*args, "--base", options.base] if name == "diff-coverage" else args)
