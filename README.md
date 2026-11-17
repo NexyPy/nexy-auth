@@ -33,6 +33,19 @@ wrong. nexy-auth ships them once, tested, with safe defaults.
 
 Design phase. The API is being written in the issues before any code. Nothing is published yet.
 
+## Documentation
+
+The module docs live in [docs/](docs/README.md). The planned install is two commands:
+
+```bash
+nx add nexy-auth
+nx migrate --upgrade
+```
+
+`nx add` currently handles UI components, so module support is being designed in
+[issue 9](https://github.com/NexyPy/nexy-auth/issues/9). The docs show the planned API and how it will
+be used in a project, and every page says what is still a decision.
+
 ## Development
 
 Python uses uv and the Astral tools. TypeScript uses pnpm and Vitest. Node 26 and Python 3.13
