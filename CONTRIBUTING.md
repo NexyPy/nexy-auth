@@ -14,12 +14,15 @@ The hooks check the commit message, the identity and the staged files. Never use
 
 ## Work
 
-1. Read the issue and research the question with primary sources. Check versions and advisories
+1. Branch from `develop` with `feature/<issue>`, `fix/<issue>`, `docs/<issue>` or `perf/<issue>`.
+   `main` is reserved for releases.
+2. Read the issue and research the question with primary sources. Check versions and advisories
    with commands, not from memory.
-2. Write a failing test. Write the least code that passes. Refactor.
-3. Run `uv run python scripts/verify.py` from the root and `pnpm --dir client run verify`.
-4. Open a pull request with the gate output. One purpose, one unit, one file per commit.
-5. Wait for the maintainer review. Do not approve or merge your own pull request. The maintainer
+3. Write a failing test. Write the least code that passes. Refactor.
+4. Run `uv run python scripts/verify.py` from the root and `pnpm --dir client run verify`.
+5. Open a pull request against `develop` with the gate output. One purpose, one unit, one file per
+   commit.
+6. Wait for the maintainer review. Do not approve or merge your own pull request. The maintainer
    validates the work and merges it.
 
 ## Language and characters
