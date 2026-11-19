@@ -23,3 +23,13 @@ def test_message_with_human_trailer_is_accepted(tmp_path: Path):
     message = "feat: add port\n\nSigned-off-by: Espoir <espoir@example.com>\n"
     result = _run(message, tmp_path / "message")
     assert result.returncode == 0
+
+
+def test_message_with_dependabot_co_author_is_accepted(tmp_path: Path):
+    message = (
+        "chore(deps): bump pnpm/action-setup\n\n"
+        "Co-authored-by: dependabot[bot] "
+        "<49699333+dependabot[bot]@users.noreply.github.com>\n"
+    )
+    result = _run(message, tmp_path / "message")
+    assert result.returncode == 0
