@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main, "feature/**", "fix/**", "docs/**", "chore/**"]
+    branches: [main, develop, "feature/**", "fix/**", "docs/**", "chore/**"]
   pull_request:
-    branches: [main]
+    branches: [develop, main]
 
 permissions: {}
 
@@ -20,7 +20,7 @@ env:
 jobs:
   python:
     name: Python ${{ matrix.python-version }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 20
     permissions:
       contents: read
@@ -50,7 +50,7 @@ jobs:
 
   typescript:
     name: TypeScript
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
     permissions:
       contents: read
@@ -80,7 +80,7 @@ jobs:
 
   attribution:
     name: Commit attribution
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 5
     permissions:
       contents: read
@@ -103,7 +103,7 @@ jobs:
 
   dependencies:
     name: Dependency audit
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
     permissions:
       contents: read
@@ -123,9 +123,33 @@ jobs:
       - name: Reject known vulnerabilities
         run: uv run --no-sync python scripts/audit_dependencies.py
 
+  review:
+    name: Maintainer review
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-26.04
+    timeout-minutes: 5
+    permissions:
+      pull-requests: read
+    steps:
+      - name: Require the maintainer approval
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          NUMBER: ${{ github.event.pull_request.number }}
+          MAINTAINER: Espoir-Loem
+        run: |
+          if [ "$AUTHOR" = "$MAINTAINER" ]; then
+            echo "Maintainer pull request: no separate validation needed"
+            exit 0
+          fi
+          COUNT=$(gh api "repos/$GH_REPO/pulls/$NUMBER/reviews" --paginate \
+            --jq "[.[] | select(.state == \"APPROVED\" and .user.login == \"$MAINTAINER\")] | length")
+          test "$COUNT" -ge 1
+
   build:
     name: Build distributions
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
     permissions:
       contents: read

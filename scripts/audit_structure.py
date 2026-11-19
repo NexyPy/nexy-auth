@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = "src/nexy_auth"
+PACKAGE = "src/server/nexy_auth"
 MAX_FUNCTION_LINES = 20
 MAX_METHODS = 10
 FORBIDDEN_FOLDERS = frozenset({"utils", "misc", "common"})

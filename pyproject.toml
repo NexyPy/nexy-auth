@@ -41,11 +41,11 @@ requires = ["hatchling>=1.33.0"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/nexy_auth"]
+packages = ["src/server/nexy_auth"]
 
 [tool.mypy]
 strict = true
-files = "src/nexy_auth"
+files = "src/server/nexy_auth"
 show_error_codes = true
 warn_unreachable = true
 

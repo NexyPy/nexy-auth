@@ -8,5 +8,5 @@ cd "$ROOT"
 "$PY" scripts/check_human_characters.py --staged
 uv run --frozen ruff check src/ tests/ scripts/
 uv run --frozen ruff format src/ tests/ scripts/ --check
-uv run --frozen python -m mypy src/nexy_auth --strict
+uv run --frozen python -m mypy src/server/nexy_auth --strict
 uv run --frozen python -m pytest tests/ -q

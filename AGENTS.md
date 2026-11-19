@@ -34,7 +34,7 @@ second factor and organizations.
 
 ## Done means tested, measured and checked
 
-- Every added line of `src/nexy_auth/` runs in a test, and every branch it opens is taken. Total
+- Every added line of `src/server/nexy_auth/` runs in a test, and every branch it opens is taken. Total
   coverage is not enough, because it hides the new lines no test runs.
 - Security has its own tests. Every value a person or another site controls gets a hostile test:
   a path that climbs out of its folder, a body over the limit, a redirect to another site, a call
@@ -79,6 +79,21 @@ second factor and organizations.
 - `scripts/check_human_characters.py` enforces the character rule on tracked files, staged files
   and commit messages. It is a gate, not a suggestion.
 
+## Branches
+
+- `main` is the release branch. It receives reviewed changes from `develop` and release commits.
+- `develop` is the integration branch. Every change lands there first. Open a pull request against
+  `develop` and link the issue it resolves.
+- Work branches use `feature/*`, `fix/*`, `docs/*` and `perf/*`, named after the issue. A work branch
+  starts from `develop` and targets `develop`.
+- Diff coverage compares with `origin/develop`, so a change is measured against the code it will
+  merge into.
+- Only the maintainer merges into `main` and `develop`. A contributor works on a branch and waits
+  for the review.
+- GitHub branch protection enforces this on both branches: a pull request, one code owner approval,
+  an approval after the last push, up-to-date branches and every CI check are required. Force pushes
+  and branch deletion are refused. The maintainer can bypass the rule when the repository needs it.
+
 ## Commits and attribution
 
 - Conventional Commits: `feat:`, `fix:`, `docs:`, `refactor:`, `perf:`, `test:`, `chore:`. The
@@ -106,6 +121,15 @@ second factor and organizations.
   exception needs a one-line justification next to it and an entry in the accepted risk register.
 - Dependencies are updated by Dependabot on a weekly schedule. A version is upgraded after its
   gates pass, not before.
+
+## Bot identities
+
+- Every bot account that acts for Nexy uses the Nexy logo as its avatar. A GitHub App owned by Nexy
+  uploads `docs/assets/nexy-bot-avatar.png` as its badge, with the dark background `#0a0a0a`.
+- GitHub-owned bots (Dependabot, github-actions) keep their own avatar. A repository cannot change
+  it, and no bot is created to impersonate them.
+- Third-party apps keep their own identity. A bot with write access is reviewed like any other
+  collaborator and is never named after an AI tool.
 
 ## Pull requests and releases
 

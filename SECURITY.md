@@ -7,7 +7,7 @@ reproduce the issue and the impact. Do not open a public issue for an unfixed vu
 
 ## What is checked
 
-- Bandit scans `src/nexy_auth/` on every push. Zero findings is the gate.
+- Bandit scans `src/server/nexy_auth/` on every push. Zero findings is the gate.
 - pip-audit runs against the frozen lock, including dev tools, on every push.
 - Dependabot opens weekly updates for Python, TypeScript and GitHub Actions.
 - Every hostile input gets a test that asserts the refusal.

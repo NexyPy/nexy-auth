@@ -1,4 +1,4 @@
-"""Fail when a new line of src/nexy_auth/ runs in no test or opens an untaken branch.
+"""Fail when a new line of src/server/nexy_auth/ runs in no test or opens an untaken branch.
 
 The coverage floor of pyproject.toml guards the whole package; this gate guards the change: every
 added executable line must run, and every branch it opens must be taken, in at least one test.
@@ -19,7 +19,7 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
-PACKAGE = "src/nexy_auth/"
+PACKAGE = "src/server/nexy_auth/"
 SKIPPED: tuple[str, ...] = ()
 _FILE = re.compile(r"^\+\+\+ b/(.+)$")
 _HUNK = re.compile(r"^@@ -\S+ \+(\d+)(?:,(\d+))? @@")
@@ -92,7 +92,7 @@ def _diff(base: str) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--base", default="origin/main")
+    parser.add_argument("--base", default="origin/develop")
     parser.add_argument("--report", default=".coverage.json")
     args = parser.parse_args(argv)
     report = json.loads(Path(args.report).read_text(encoding="utf-8"))
@@ -102,7 +102,7 @@ def main(argv: list[str] | None = None) -> int:
     if found:
         print(f"{len(found)} added line(s) or branch(es) run in no test: write the test first.")
         return 1
-    print("Every added line of src/nexy_auth/ runs in a test")
+    print("Every added line of src/server/nexy_auth/ runs in a test")
     return 0
 
 
