@@ -92,7 +92,7 @@ def _diff(base: str) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--base", default="origin/main")
+    parser.add_argument("--base", default="origin/develop")
     parser.add_argument("--report", default=".coverage.json")
     args = parser.parse_args(argv)
     report = json.loads(Path(args.report).read_text(encoding="utf-8"))

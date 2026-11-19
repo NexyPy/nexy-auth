@@ -79,6 +79,21 @@ second factor and organizations.
 - `scripts/check_human_characters.py` enforces the character rule on tracked files, staged files
   and commit messages. It is a gate, not a suggestion.
 
+## Branches
+
+- `main` is the release branch. It receives reviewed changes from `develop` and release commits.
+- `develop` is the integration branch. Every change lands there first. Open a pull request against
+  `develop` and link the issue it resolves.
+- Work branches use `feature/*`, `fix/*`, `docs/*` and `perf/*`, named after the issue. A work branch
+  starts from `develop` and targets `develop`.
+- Diff coverage compares with `origin/develop`, so a change is measured against the code it will
+  merge into.
+- Only the maintainer merges into `main` and `develop`. A contributor works on a branch and waits
+  for the review.
+- GitHub branch protection enforces this on both branches: a pull request, one code owner approval,
+  an approval after the last push, up-to-date branches and every CI check are required. Force pushes
+  and branch deletion are refused. The maintainer can bypass the rule when the repository needs it.
+
 ## Commits and attribution
 
 - Conventional Commits: `feat:`, `fix:`, `docs:`, `refactor:`, `perf:`, `test:`, `chore:`. The

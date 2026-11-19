@@ -6,6 +6,7 @@ updates:
       interval: "weekly"
       day: "monday"
     open-pull-requests-limit: 10
+    target-branch: "develop"
     labels: ["dependencies", "python"]
 
   - package-ecosystem: "npm"
@@ -14,6 +15,7 @@ updates:
       interval: "weekly"
       day: "monday"
     open-pull-requests-limit: 10
+    target-branch: "develop"
     labels: ["dependencies", "typescript"]
 
   - package-ecosystem: "github-actions"
@@ -22,4 +24,5 @@ updates:
       interval: "weekly"
       day: "monday"
     open-pull-requests-limit: 10
+    target-branch: "develop"
     labels: ["dependencies", "ci"]
